@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int countWords(string str) {
+    int count = 0;
+    bool inWord = false;
+
+    for (char c : str) {
+        if (isspace(c)) {
+            inWord = false;
+        } else if (!inWord) {
+            inWord = true;
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    string sentence;
+
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+
+    int wordCount = countWords(sentence);
+    cout << "Number of words: " << wordCount << endl;
+
+    return 0;
+}
